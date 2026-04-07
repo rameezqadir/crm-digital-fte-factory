@@ -1,0 +1,12 @@
+﻿[
+  {"id": "T001", "channel": "email", "from": "john@company.com", "subject": "Cannot login", "message": "Hello, I've been trying to login to my account since yesterday but keep getting 'invalid credentials'. I haven't changed my password. Please help.", "timestamp": "2024-01-15T09:23:00Z"},
+  {"id": "T002", "channel": "whatsapp", "from": "+12125551234", "message": "hi how do i reset password", "timestamp": "2024-01-15T10:01:00Z"},
+  {"id": "T003", "channel": "web_form", "from": "sarah@startup.io", "subject": "API rate limit question", "message": "We are hitting the 1000 req/hour limit. We need more. What are our options?", "timestamp": "2024-01-15T10:45:00Z"},
+  {"id": "T004", "channel": "email", "from": "mike@enterprise.com", "subject": "Billing discrepancy", "message": "Our invoice shows 50 users but we only have 42 active. Please correct and issue a credit.", "timestamp": "2024-01-15T11:30:00Z"},
+  {"id": "T005", "channel": "whatsapp", "from": "+13055559876", "message": "This is RIDICULOUS. Your app has been down for 2 hours and I have a client presentation!", "timestamp": "2024-01-15T12:00:00Z"},
+  {"id": "T006", "channel": "web_form", "from": "dev@techstartup.com", "subject": "Slack integration broken", "message": "The Slack integration stopped sending notifications 3 days ago. We've tried reconnecting but same issue.", "timestamp": "2024-01-15T12:30:00Z"},
+  {"id": "T007", "channel": "email", "from": "legal@bigcorp.com", "subject": "GDPR Data Request", "message": "Per GDPR Article 15, we request all personal data you hold about our employees. Our legal team requires this within 30 days.", "timestamp": "2024-01-15T13:00:00Z"},
+  {"id": "T008", "channel": "whatsapp", "from": "+14155558888", "message": "how much does enterprise cost", "timestamp": "2024-01-15T13:15:00Z"},
+  {"id": "T009", "channel": "web_form", "from": "pm@agencyco.com", "subject": "Feature request: Gantt chart", "message": "We love TeamFlow but really need a Gantt chart view for our project planning. Is this on the roadmap?", "timestamp": "2024-01-15T14:00:00Z"},
+  {"id": "T010", "channel": "email", "from": "admin@school.edu", "subject": "Cannot import CSV", "message": "I'm trying to import 200 tasks from a CSV file but keep getting an error: 'Invalid format on row 45'. The file looks correct to me.", "timestamp": "2024-01-15T14:30:00Z"}
+]
