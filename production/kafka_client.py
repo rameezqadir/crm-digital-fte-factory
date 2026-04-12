@@ -1,5 +1,4 @@
-﻿from aiokafka import AIOKafkaProducer, AIOKafkaConsumer
-import json
+﻿import json
 from datetime import datetime
 import os
 
@@ -18,39 +17,38 @@ TOPICS = {
 }
 
 class FTEKafkaProducer:
+    """Mock Kafka producer - works without a running Kafka broker."""
     def __init__(self):
-        self.producer = None
+        self.messages = []
 
     async def start(self):
-        self.producer = AIOKafkaProducer(
-            bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-            value_serializer=lambda v: json.dumps(v).encode('utf-8')
-        )
-        await self.producer.start()
+        print("[KAFKA MOCK] Producer started (mock mode - no broker needed)")
 
     async def stop(self):
-        if self.producer:
-            await self.producer.stop()
+        print("[KAFKA MOCK] Producer stopped")
 
     async def publish(self, topic: str, event: dict):
         event["timestamp"] = datetime.utcnow().isoformat()
-        await self.producer.send_and_wait(topic, event)
+        self.messages.append({"topic": topic, "event": event})
+        print(f"[KAFKA MOCK] Published to {topic}: {str(event)[:100]}")
+
 
 class FTEKafkaConsumer:
+    """Mock Kafka consumer - works without a running Kafka broker."""
     def __init__(self, topics: list, group_id: str):
-        self.consumer = AIOKafkaConsumer(
-            *topics,
-            bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-            group_id=group_id,
-            value_deserializer=lambda v: json.loads(v.decode('utf-8'))
-        )
+        self.topics = topics
+        self.group_id = group_id
+        print(f"[KAFKA MOCK] Consumer created for topics: {topics}")
 
     async def start(self):
-        await self.consumer.start()
+        print(f"[KAFKA MOCK] Consumer started (mock mode)")
 
     async def stop(self):
-        await self.consumer.stop()
+        print(f"[KAFKA MOCK] Consumer stopped")
 
     async def consume(self, handler):
-        async for msg in self.consumer:
-            await handler(msg.topic, msg.value)
+        print("[KAFKA MOCK] Listening for messages (mock - no real messages will arrive)")
+        # In mock mode, just keep alive
+        import asyncio
+        while True:
+            await asyncio.sleep(60)
